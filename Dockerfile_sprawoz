@@ -1,0 +1,21 @@
+#Obraz bazowy to Ubuntu w najnowszej wersji
+FROM ubuntu:latest
+
+#Jako autora podać swoje nazwisko i e-mail
+LABEL author="JSikora s97733@pollub.edu.pl"
+
+#System Ubuntu ma być zaktualizowany
+RUN apt-get update && apt-get upgrade -y
+
+#Zainstalowany ma być serwer HTTP Apache w najnowszej wersji.
+RUN apt-get install -y apache2
+
+#Do serwera ma być skopiowana dowolna strona WWW, ale zawierająca następujące informacje:
+#- imię i nazwisko studenta
+#- grupa dziekańska
+COPY index.html /var/www/html/index.html
+
+#Serwer ma „nasłuchiwać” na porcie 8080
+EXPOSE 8080
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]
