@@ -11,4 +11,6 @@
      5. Zmienić na Listen 8080
      6. Teraz trzeba zrestartować Apache poleceniem: service apache2 restart
 5. Uruchomić kontener poleceniem: docker start <id_kontenera>.
+
+Serwer posiada 4 warstwy, można to sprawdzić poleceniem: docker image inspect web100 i poszukać w listingu pozycji Layers.
         
